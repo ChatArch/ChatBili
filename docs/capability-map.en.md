@@ -8,7 +8,7 @@ Use this page to check which first-class capabilities `ChatBili` currently owns,
 
 - **CLI Entry**
 
-    `chatbili --help` and `chatbili --version` are the default verification entry points.
+    `chatbili --help`, `chatbili --version`, `chatbili --tree`, and `chatbili --tree-brief` are the default verification entry points.
 
 - **Python API**
 
@@ -24,7 +24,7 @@ Use this page to check which first-class capabilities `ChatBili` currently owns,
 
 | Capability | Status | Notes |
 | --- | --- | --- |
-| CLI base entry | Implemented | The template generates a Click group, `--version`, and a base test. |
+| CLI base entry | Implemented | The template generates a Click group, `--version`, shared CLI tree options, and base tests. |
 | ChatEnv provider | Implemented | The template generates `config.py` and a `chatenv.configs` entry point. |
 | Business commands | Not implemented | Add these from the real package domain; do not fake future commands in the template. |
 

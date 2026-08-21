@@ -36,17 +36,20 @@ Bilibili integration package for ChatArch workflows
 pip install -e ".[dev]"
 chatbili --help
 chatbili --version
+chatbili --tree
+chatbili --tree-brief
 python -m pytest -q
 python -m build
 ```
 
 ## 命令行规范
 
-这个模板默认依赖 `chatstyle>=0.1.0,<0.2.0` 和 `chatenv>=0.2.0,<0.3.0`，新增命令应优先使用：
+这个模板默认依赖 `chatstyle>=0.2.0,<0.3.0` 和 `chatenv>=0.2.10,<0.3.0`，新增命令应优先使用：
 
 - `CommandSchema` / `CommandField` 描述输入。
 - `add_interactive_option()` 提供统一 `-i/-I`。
 - `resolve_command_inputs()` 统一缺参补问、默认值、TTY 与校验。
+- 顶层 Click CLI 使用 `add_tree_option()`：`--tree` 默认显示参数签名，`--tree-brief` 保留命令节点和说明但省略参数签名。
 - 默认生成 `config.py` 和 `chatenv.configs` 入口点，使包可被 ChatEnv 发现；只有明确不需要 ChatEnv 接入时才使用 `--without-chatenv-provider`。
 
 ## 目录结构
