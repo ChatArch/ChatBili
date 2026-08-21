@@ -7,10 +7,11 @@
 ## 顶层命令
 
 ```text
-chatbili                  # ChatBili 命令行入口
+chatbili
 ├── --help                     # 显示 CLI 帮助和已注册命令
 ├── --version                  # 输出当前包版本
-└── --tree                     # 输出真实已注册 CLI 树
+├── --tree                     # 输出带参数签名的真实 CLI 树
+└── --tree-brief               # 保留命令节点和说明，但省略参数签名
 ```
 
 ## 基础入口
@@ -18,10 +19,11 @@ chatbili                  # ChatBili 命令行入口
 ```text
 chatbili --help           # 验证命令已安装，并查看当前命令树
 chatbili --version        # 验证当前安装版本
-chatbili --tree           # 回读真实 CLI contract
+chatbili --tree           # 回读带参数签名的真实 CLI contract
+chatbili --tree-brief     # 回读省略参数签名的简明 CLI contract
 ```
 
-`--help`、`--version` 和 `--tree` 是模板默认可验证入口。新增业务命令后，应像 ChatTea 的 CLI 树一样，把命令组单独展开，并给每个命令写一行注释。
+`--help`、`--version`、`--tree` 和 `--tree-brief` 是模板默认可验证入口。顶层 CLI 通过 ChatStyle 的共享 `add_tree_option()` 注册树选项。当前还没有业务命令，所以两种树都只显示无参数签名的标志节点；新增命令后，`--tree` 会显示参数签名，`--tree-brief` 会保留命令节点和说明并省略签名。
 
 ## 业务命令槽位
 

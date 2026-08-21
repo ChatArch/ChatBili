@@ -36,17 +36,20 @@ Choose documentation by scenario:
 pip install -e ".[dev]"
 chatbili --help
 chatbili --version
+chatbili --tree
+chatbili --tree-brief
 python -m pytest -q
 python -m build
 ```
 
 ## CLI Contract
 
-This template depends on `chatstyle>=0.1.0,<0.2.0` and `chatenv>=0.2.0,<0.3.0`. New commands should prefer:
+This template depends on `chatstyle>=0.2.0,<0.3.0` and `chatenv>=0.2.10,<0.3.0`. New commands should prefer:
 
 - `CommandSchema` / `CommandField` for inputs.
 - `add_interactive_option()` for the shared `-i/-I` switch.
 - `resolve_command_inputs()` for missing args, defaults, TTY behavior, and validation.
+- Use `add_tree_option()` on the top-level Click CLI: `--tree` includes parameter signatures by default, while `--tree-brief` keeps command nodes and descriptions but omits signatures.
 - Generate `config.py` and a `chatenv.configs` entry point by default so the package is ChatEnv-discoverable; use `--without-chatenv-provider` only when ChatEnv integration is intentionally not needed.
 
 ## Layout

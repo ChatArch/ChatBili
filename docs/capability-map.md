@@ -8,7 +8,7 @@
 
 - **命令行入口**
 
-    `chatbili --help` 和 `chatbili --version` 是默认可验证入口。
+    `chatbili --help`、`chatbili --version`、`chatbili --tree` 和 `chatbili --tree-brief` 是默认可验证入口。
 
 - **Python 接口**
 
@@ -24,7 +24,7 @@
 
 | 能力 | 状态 | 说明 |
 | --- | --- | --- |
-| 命令行基础入口 | 已实现 | 模板生成 Click group、`--version` 和基础测试。 |
+| 命令行基础入口 | 已实现 | 模板生成 Click group、`--version`、共享 CLI 树选项和基础测试。 |
 | ChatEnv 配置提供者 | 已实现 | 默认生成 `config.py` 和 `chatenv.configs` 入口点。 |
 | 业务命令 | 未实现 | 按当前包真实需求补充，不能在模板里伪造未来命令。 |
 

@@ -7,10 +7,11 @@ Importable Python functions are mapped in [Interface Tree](interface-tree.md). C
 ## Top-Level Commands
 
 ```text
-chatbili                  # ChatBili command-line entry
+chatbili
 ├── --help                     # Show CLI help and registered commands
 ├── --version                  # Print the current package version
-└── --tree                     # Print the actual registered CLI tree
+├── --tree                     # Print the registered CLI tree with parameter signatures
+└── --tree-brief               # Keep command nodes and descriptions, but omit signatures
 ```
 
 ## Base Entries
@@ -18,10 +19,11 @@ chatbili                  # ChatBili command-line entry
 ```text
 chatbili --help           # Verify the command is installed and inspect the current command tree
 chatbili --version        # Verify the installed version
-chatbili --tree           # Read back the actual CLI contract
+chatbili --tree           # Read back the CLI contract with parameter signatures
+chatbili --tree-brief     # Read back the brief CLI contract without parameter signatures
 ```
 
-`--help`, `--version`, and `--tree` are the scaffolded verification entries. After adding business commands, follow the ChatTea CLI tree pattern: split command groups into their own sections and annotate every command line.
+`--help`, `--version`, `--tree`, and `--tree-brief` are the scaffolded verification entries. The top-level CLI registers both tree flags through ChatStyle's shared `add_tree_option()`. There are no business commands yet, so both trees currently contain only flag nodes without parameter signatures. Once commands are registered, `--tree` shows their parameter signatures and `--tree-brief` keeps their nodes and descriptions while omitting those signatures.
 
 ## Business Command Slots
 
